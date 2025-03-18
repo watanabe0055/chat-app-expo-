@@ -1,13 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Input from "./components/Input";
-import SubmitButton from "./components/button";
+import InputRap from "./components/InputRap";
+import { useAtomValue } from "jotai";
+import { messageList } from "./globalState";
 
 export default function App() {
+  const message = useAtomValue(messageList);
   return (
     <View style={styles.container}>
-      <Input />
-      <SubmitButton />
+      {message.map((item) => (
+        <Text key={item}>{item}</Text>
+      ))}
+      <InputRap />
       <StatusBar style="auto" />
     </View>
   );

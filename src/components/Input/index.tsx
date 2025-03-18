@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { inputText } from "@/globalState";
+import { useAtom } from "jotai";
 import { TextInput, StyleSheet, SafeAreaView } from "react-native";
 
 const Input = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useAtom(inputText);
 
   return (
     <SafeAreaView>
